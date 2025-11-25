@@ -14,6 +14,7 @@ import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { MdOutlineFileDownload } from "react-icons/md";
 
 export default function DitherInterface() {
     const [imageSrc, setImageSrc] = useState<string | null>(null);
@@ -104,9 +105,11 @@ export default function DitherInterface() {
                             <Button
                                 onClick={downloadImage}
                                 disabled={!imageSrc}
-                                className="font-semibold uppercase tracking-wide shadow-none"
+                                className="shadow-none"
+                                variant="default"
                             >
-                                DOWNLOAD
+                                Download
+                                <MdOutlineFileDownload className="ml-1 h-4 w-4" />
                             </Button>
                         </div>
                     </div>

@@ -2,6 +2,8 @@ import React from "react";
 import Link from "next/link";
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { Button } from "@/components/ui/button";
+import { AiOutlineGithub } from "react-icons/ai";
 
 const tools = [
   {
@@ -16,7 +18,7 @@ const tools = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen p-6 font-mono md:p-12 selection:bg-foreground selection:text-background">
+    <main className="min-h-screen p-6 font-mono md:p-12 bg-background text-foreground">
       <div className="mx-auto max-w-5xl space-y-16">
 
         <header className="space-y-4">
@@ -24,7 +26,15 @@ export default function Home() {
             <h1 className="text-4xl font-bold tracking-tighter md:text-6xl">
               UNSAFE<span className="text-muted-foreground">ZERO</span>
             </h1>
-            <ThemeToggle />
+            <div className="flex items-center gap-2">
+              <ThemeToggle />
+              <Link href="https://github.com/unsafe0x0/unsafezero" target="_blank">
+                <Button variant="default" size="default" className="shadow-none">
+                  <AiOutlineGithub />
+                  GitHub
+                </Button>
+              </Link>
+            </div>
           </div>
           <p className="max-w-lg text-muted-foreground">
             Experimental interfaces and digital tools.
@@ -39,13 +49,13 @@ export default function Home() {
               <HoverCardTrigger asChild>
                 <Link
                   href={tool.href}
-                  className="group relative flex h-48 flex-col justify-between bg-background p-6 hover:bg-accent transition-colors border border-border rounded-md"
+                  className="group relative flex h-48 flex-col justify-between bg-background p-6 hover:bg-card transition-colors border border-border rounded-md"
                 >
                   <div className="flex justify-between items-start">
                     <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors">
                       /{tool.id}
                     </span>
-                    <span className="text-[10px] uppercase tracking-wider border border-border px-1.5 py-0.5 rounded-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                    <span className="text-xs uppercase tracking-wider border border-border px-1.5 py-0.5 rounded-sm text-muted-foreground group-hover:text-foreground transition-colors">
                       {tool.status}
                     </span>
                   </div>
@@ -60,7 +70,7 @@ export default function Home() {
               </HoverCardTrigger>
 
               <HoverCardContent
-                className="w-72 rounded-none border-border bg-background p-0 font-mono rounded-md overflow-hidden shadow-none"
+                className="w-[var(--radix-hover-card-trigger-width)] rounded-none border-border bg-background p-0 font-mono rounded-md overflow-hidden shadow-none"
                 sideOffset={10}
                 align="start"
               >
@@ -69,11 +79,11 @@ export default function Home() {
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <div className="text-[10px] uppercase text-muted-foreground">Function</div>
+                    <div className="text-xs uppercase text-muted-foreground">Function</div>
                     <div className="text-sm font-medium">{tool.description}</div>
                   </div>
                   <div>
-                    <div className="text-[10px] uppercase text-muted-foreground">Path</div>
+                    <div className="text-xs uppercase text-muted-foreground">Path</div>
                     <code className="text-xs bg-muted px-1 py-0.5">{tool.href}</code>
                   </div>
                 </div>
