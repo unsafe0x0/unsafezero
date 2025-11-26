@@ -1,6 +1,10 @@
 import React from "react";
 import Link from "next/link";
-import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
+import {
+  HoverCard,
+  HoverCardTrigger,
+  HoverCardContent,
+} from "@/components/ui/hover-card";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
 import { AiOutlineGithub } from "react-icons/ai";
@@ -10,7 +14,8 @@ const tools = [
     id: "001",
     name: "dither_engine",
     label: "Dither",
-    description: "Algorithmic image processing. Floyd-Steinberg, Atkinson, Ordered.",
+    description:
+      "Algorithmic image processing. Floyd-Steinberg, Atkinson, Ordered.",
     href: "/dither",
     status: "READY",
   },
@@ -19,22 +24,43 @@ const tools = [
 export default function Home() {
   return (
     <main className="min-h-screen p-6 font-mono md:p-12 bg-background text-foreground">
-      <div className="mx-auto max-w-5xl space-y-16">
+      <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl">
+        <div className="flex items-center justify-between bg-background/80 backdrop-blur-md border border-border rounded-lg px-4 py-3 md:px-6">
+          <h1 className="text-lg font-bold tracking-tighter md:text-xl">
+            UNSAFE<span className="text-muted-foreground">ZERO</span>
+          </h1>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <Link
+              href="https://github.com/unsafe0x0/unsafezero"
+              target="_blank"
+            >
+              <Button
+                variant="default"
+                size="sm"
+                className="shadow-none hidden sm:flex"
+              >
+                <AiOutlineGithub />
+                GitHub
+              </Button>
+              <Button
+                variant="default"
+                size="icon"
+                className="shadow-none sm:hidden"
+              >
+                <AiOutlineGithub />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </nav>
 
+      <div className="mx-auto max-w-5xl space-y-16 pt-20">
         <header className="space-y-4">
           <div className="flex items-start justify-between">
             <h1 className="text-4xl font-bold tracking-tighter md:text-6xl">
               UNSAFE<span className="text-muted-foreground">ZERO</span>
             </h1>
-            <div className="flex items-center gap-2">
-              <ThemeToggle />
-              <Link href="https://github.com/unsafe0x0/unsafezero" target="_blank">
-                <Button variant="default" size="default" className="shadow-none">
-                  <AiOutlineGithub />
-                  GitHub
-                </Button>
-              </Link>
-            </div>
           </div>
           <p className="max-w-lg text-muted-foreground">
             Experimental interfaces and digital tools.
@@ -43,7 +69,7 @@ export default function Home() {
           </p>
         </header>
 
-        <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {tools.map((tool) => (
             <HoverCard key={tool.name} openDelay={0} closeDelay={0}>
               <HoverCardTrigger asChild>
@@ -75,22 +101,31 @@ export default function Home() {
                 align="start"
               >
                 <div className="border-b border-border bg-muted p-3">
-                  <span className="text-xs font-bold uppercase tracking-wider">Module Info</span>
+                  <span className="text-xs font-bold uppercase tracking-wider">
+                    Module Info
+                  </span>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <div className="text-xs uppercase text-muted-foreground">Function</div>
-                    <div className="text-sm font-medium">{tool.description}</div>
+                    <div className="text-xs uppercase text-muted-foreground">
+                      Function
+                    </div>
+                    <div className="text-sm font-medium">
+                      {tool.description}
+                    </div>
                   </div>
                   <div>
-                    <div className="text-xs uppercase text-muted-foreground">Path</div>
-                    <code className="text-xs bg-muted px-1 py-0.5">{tool.href}</code>
+                    <div className="text-xs uppercase text-muted-foreground">
+                      Path
+                    </div>
+                    <code className="text-xs bg-muted px-1 py-0.5">
+                      {tool.href}
+                    </code>
                   </div>
                 </div>
               </HoverCardContent>
             </HoverCard>
           ))}
-
         </section>
       </div>
     </main>
