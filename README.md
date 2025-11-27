@@ -10,13 +10,13 @@ UnsafeZero is a lightweight playground for experimental, single‑page web modul
 
 Minimal surface area. Fast iteration. No promises of stability. Things may break, change, or disappear.
 
-## Tech Stack (High Level)
+## Tech Stack
 
 - Next.js App Router
 - React + TypeScript
 - Custom UI components + theming
 
-## Getting Started (Monorepo Root)
+## Getting Started
 
 ```bash
 bun install
