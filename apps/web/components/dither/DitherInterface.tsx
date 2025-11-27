@@ -44,7 +44,12 @@ export default function DitherInterface() {
   const processImage = useCallback(async () => {
     if (!imageSrc || !canvasRef.current) return;
 
-    setIsProcessing(true);
+    await new Promise<void>((resolve) => {
+      requestAnimationFrame(() => {
+        setIsProcessing(true);
+        resolve();
+      });
+    });
     const img = new Image();
     img.src = imageSrc;
     await new Promise((resolve) => {
@@ -192,7 +197,7 @@ export default function DitherInterface() {
                   step={0.25}
                   value={[pixelSize]}
                   onValueChange={(vals) => setPixelSize(vals[0])}
-                  className="cursor-pointer [&_[data-slot=slider-thumb]]:shadow-none"
+                  className="cursor-pointer **:data-[slot=slider-thumb]:shadow-none"
                 />
               </div>
             </div>
@@ -211,7 +216,7 @@ export default function DitherInterface() {
           </div>
 
           <div className="flex-1 border border-border rounded-lg bg-muted flex items-center justify-center min-h-[60vh] relative overflow-hidden group">
-            <div className="absolute inset-0 bg-[radial-gradient(#000000_1px,transparent_1px)] dark:bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px] opacity-10 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(#000000_1px,transparent_1px)] dark:bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-size-[16px_16px] opacity-10 pointer-events-none"></div>
 
             {!imageSrc && (
               <div className="text-muted-foreground text-sm uppercase tracking-widest border border-dashed border-border p-8 rounded-lg">
@@ -246,7 +251,7 @@ export default function DitherInterface() {
                 >
                   -
                 </Button>
-                <span className="px-2 py-1 bg-background text-sm font-mono flex items-center rounded border border-border min-w-[3rem] justify-center shadow-none">
+                <span className="px-2 py-1 bg-background text-sm font-mono flex items-center rounded border border-border min-w-12 justify-center shadow-none">
                   {Math.round(zoom * 100)}%
                 </span>
                 <Button

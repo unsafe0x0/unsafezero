@@ -96,7 +96,7 @@ export default function Home() {
               </HoverCardTrigger>
 
               <HoverCardContent
-                className="w-[var(--radix-hover-card-trigger-width)] rounded-none border-border bg-background p-0 font-mono rounded-md overflow-hidden shadow-none"
+                className="w-(--radix-hover-card-trigger-width) rounded-md border-border bg-background p-0 font-mono overflow-hidden shadow-none"
                 sideOffset={10}
                 align="start"
               >
