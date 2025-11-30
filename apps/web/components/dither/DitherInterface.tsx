@@ -115,16 +115,6 @@ export default function DitherInterface() {
       </nav>
 
       <div className="mx-auto max-w-5xl space-y-16 pt-20">
-        <header className="space-y-4">
-          <div className="flex items-start justify-between">
-            <h1 className="text-4xl font-bold tracking-tighter md:text-6xl">
-              DITHER<span className="text-muted-foreground">ENGINE</span>
-            </h1>
-          </div>
-          <p className="max-w-lg text-muted-foreground">
-            Algorithmic image processing. Floyd-Steinberg, Atkinson, Ordered.
-          </p>
-        </header>
 
         <div className="flex flex-col gap-6">
           <Card className="grid grid-cols-1 md:grid-cols-4 gap-6 p-6 bg-card border-border shadow-none">

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +15,35 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "UnsafeZero",
-  description: "Tools and fun projects by UnsafeZero",
+  metadataBase: new URL("https://unsafezero.vercel.app"),
+  title: {
+    default: "UnsafeZero - Creative Tools & Projects",
+    template: "%s | UnsafeZero",
+  },
+  description:
+    "Explore creative tools and experimental projects by UnsafeZero. Free online tools for image dithering, ASCII art, and more.",
+  keywords: [
+    "web tools",
+    "image processing",
+    "dithering",
+    "dithering",
+    "ascii art",
+    "creative tools",
+    "online tools",
+    "UnsafeZero",
+  ],
+  authors: [{ name: "UnsafeZero" }],
+  creator: "UnsafeZero",
+  publisher: "UnsafeZero",
+
+  twitter: {
+    card: "summary_large_image",
+    title: "UnsafeZero - Creative Tools & Projects",
+    description:
+      "Explore creative tools and experimental projects by UnsafeZero.",
+    creator: "@unsafezero",
+    images: ["/og-default.png"],
+  },
 };
 
 export default function RootLayout({

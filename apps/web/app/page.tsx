@@ -19,6 +19,16 @@ const tools = [
     href: "/dither",
     status: "READY",
   },
+
+  {
+    id: "002",
+    name: "ascii_art",
+    label: "ASCII Art",
+    description:
+      "Convert images to ASCII art. Multiple character sets and color modes.",
+    href: "/ascii",
+    status: "READY",
+  },
 ];
 
 export default function Home() {
