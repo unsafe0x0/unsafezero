@@ -29,6 +29,33 @@ const tools = [
     href: "/ascii",
     status: "READY",
   },
+  {
+    id: "003",
+    name: "glitch_studio",
+    label: "Glitch Studio",
+    description:
+      "Experimental image manipulation. Channel shift, pixel sort, noise.",
+    href: "/glitch",
+    status: "READY",
+  },
+  {
+    id: "004",
+    name: "qr_designer",
+    label: "QR Designer",
+    description:
+      "Custom QR code generator. Logos, colors, templates.",
+    href: "/qr",
+    status: "READY",
+  },
+  {
+    id: "005",
+    name: "gradient_forge",
+    label: "Gradient Forge",
+    description:
+      "Create beautiful CSS gradients. Linear, radial, conic with export.",
+    href: "/gradient",
+    status: "READY",
+  },
 ];
 
 export default function Home() {
