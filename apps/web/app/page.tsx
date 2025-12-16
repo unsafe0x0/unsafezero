@@ -56,6 +56,15 @@ const tools = [
     href: "/gradient",
     status: "READY",
   },
+  {
+    id: "006",
+    name: "token_specter",
+    label: "Token Specter",
+    description:
+      "Decode and inspect JSON Web Tokens.",
+    href: "/jwt",
+    status: "READY",
+  },
 ];
 
 export default function Home() {
